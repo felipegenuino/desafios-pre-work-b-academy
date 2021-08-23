@@ -20,3 +20,30 @@ function fixCase(word){
 }
 
 
+const form = document.querySelector('[data-js="form"]')
+const select = document.createElement('select')
+const colors = ['#264653', '#2A9D8F', '#E9C46A', '#F4A261', '#E76F51']
+const colorsContainer = document.createElement('div')
+colorsContainer.style.display = 'flex'
+
+colors.forEach(color=>{
+  const option = document.createElement('option')
+  option.value = color;
+  option.textContent = color
+  select.appendChild(option)
+})
+
+select.addEventListener('change', (e)=>{
+  Array.from(e.target.selectedOptions).forEach(option =>{
+   const div = document.createElement('div')
+    div.style.width =  '100px'
+    div.style.height = '100px'
+    div.style.background = option.value
+    colorsContainer.appendChild(div)
+  })
+})
+
+select.setAttribute('multiple', '')
+form.appendChild(select)
+document.body.appendChild(colorsContainer)
+console.log(select)
