@@ -61,6 +61,9 @@ form.addEventListener('submit', async (e)=>{
   }
 
   const noContent = document.querySelector('[data-js="no-content')
+  if(noContent){
+    table.removeChild(noContent)
+  }
   table.removeChild(noContent)
   createTableRow(data)
 
